@@ -31,3 +31,7 @@ class Department(BaseModel):
         "Organization",
         back_populates="departments"
     )
+    users = relationship(
+    "User",
+    back_populates="department",
+    )

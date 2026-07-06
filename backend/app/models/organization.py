@@ -17,10 +17,14 @@ class Organization(BaseModel):
     Organization Master Table
     """
     departments = relationship(
-    "Department",
-    back_populates="organization",
-    cascade="all, delete-orphan",
-)
+        "Department",
+        back_populates="organization",
+        cascade="all, delete-orphan",
+    )
+    users = relationship(
+        "User",
+        back_populates="organization",
+    )
     __tablename__ = "organizations"
 
     company_name: Mapped[str] = mapped_column(
